@@ -56,7 +56,7 @@ void LogChangeOutput(DebugOutType t, char * s);
 #endif
 
 #ifdef CDDEBUG
-#define CDLOG(...) DebugPrintf(MainLog, __FILE__, __LINE__, __VA_ARGS__)
+#define CDLOG(...) printf(__VA_ARGS__)
 #else
 #define CDLOG(...)
 #endif

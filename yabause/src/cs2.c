@@ -393,6 +393,7 @@ u32 FASTCALL Cs2ReadLong(SH2_struct *sh, u32 addr) {
 #else
                         val = BSWAP32(*((const u32 *) ptr));
 #endif
+                        CDLOG("cs2\t: DTR = 0x%08x\n", val);
 
                         // increment datatransoffset/cdwnum
                         Cs2Area->cdwnum += 4;
@@ -1269,9 +1270,9 @@ void Cs2Execute(void) {
       CDLOG("cs2\t: ret: %04x %04x %04x %04x %04x\n", Cs2Area->reg.HIRQ, Cs2Area->reg.CR1, Cs2Area->reg.CR2, Cs2Area->reg.CR3, Cs2Area->reg.CR4);
       break;
     case 0x51:
-//      CDLOG("cs2\t: Command: getSectorNumber %04x %04x %04x %04x %04x\n", Cs2Area->reg.HIRQ, Cs2Area->reg.CR1, Cs2Area->reg.CR2, Cs2Area->reg.CR3, Cs2Area->reg.CR4);
+      CDLOG("cs2\t: Command: getSectorNumber %04x %04x %04x %04x %04x\n", Cs2Area->reg.HIRQ, Cs2Area->reg.CR1, Cs2Area->reg.CR2, Cs2Area->reg.CR3, Cs2Area->reg.CR4);
       Cs2GetSectorNumber();
-//      CDLOG("cs2\t: ret: %04x %04x %04x %04x %04x\n", Cs2Area->reg.HIRQ, Cs2Area->reg.CR1, Cs2Area->reg.CR2, Cs2Area->reg.CR3, Cs2Area->reg.CR4);
+      CDLOG("cs2\t: ret: %04x %04x %04x %04x %04x\n", Cs2Area->reg.HIRQ, Cs2Area->reg.CR1, Cs2Area->reg.CR2, Cs2Area->reg.CR3, Cs2Area->reg.CR4);
       break;
     case 0x52:
       CDLOG("cs2\t: Command: calculateActualSize %04x %04x %04x %04x %04x\n", Cs2Area->reg.HIRQ, Cs2Area->reg.CR1, Cs2Area->reg.CR2, Cs2Area->reg.CR3, Cs2Area->reg.CR4);

@@ -581,7 +581,7 @@ if (YAB_WANT_GDBSTUB)
 endif()
 
 # *DEBUG
-set(YAB_DEBUG "" CACHE STRING "List of enabled debug information") 
+set(YAB_DEBUG "cd" CACHE STRING "List of enabled debug information")
 foreach(DEBUG IN LISTS YAB_DEBUG)
 	if (${DEBUG} STREQUAL "main")
 		add_definitions(-DDEBUG=1)
